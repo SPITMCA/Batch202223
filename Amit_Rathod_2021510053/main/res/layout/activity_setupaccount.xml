@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="SetUp Account"
+        android:id="@+id/txtset"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="@color/blue_color"
+        android:textAlignment="center"
+        android:textColor="@color/white"></TextView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@+id/txtset"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/profileimg"
+            app:civ_border_color="@color/blue_color"
+            app:civ_border_width="2dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click on icon to add image"
+            android:textColor="@color/blue_color"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="155dp"
+
+            ></TextView>
+
+
+        <EditText
+            android:id="@+id/editTextShopName"
+            android:layout_width="264dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="190dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:hint="Shop Name"
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:textColor="@color/blue_color"
+            android:textColorHint="@color/blue_color" />
+
+        <EditText
+            android:id="@+id/editTextShopAddress"
+            android:layout_width="264dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="255dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPersonName"
+            android:lines="3"
+            android:paddingStart="20dp"
+            android:textColor="@color/blue_color"
+            android:textColorHint="@color/blue_color" />
+
+        <EditText
+            android:id="@+id/editTextShopCity"
+            android:layout_width="264dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:textColor="@color/blue_color"
+            android:textColorHint="@color/blue_color"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="264dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="385dp"
+            android:paddingStart="20dp"
+            android:background="@drawable/rounded_border"
+            android:hint="select services"
+            android:textColor="@color/blue_color"
+            android:textColorHint="@color/blue_color" />
+
+
+        <EditText
+            android:id="@+id/editTextExperience"
+            android:layout_width="264dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/rounded_border"
+            android:ems="10"
+            android:hint="Experience (in years)"
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingStart="20dp"
+            android:textColor="@color/blue_color"
+            android:textColorHint="@color/blue_color" />
+
+        <Button
+            android:id="@+id/btnUup"
+            android:layout_width="98dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="515dp"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/rounded_border"
+            android:backgroundTint="@color/blue_color"
+            android:shadowRadius="5"
+            android:text="Upload"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnSkip"
+            android:layout_width="98dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="515dp"
+            android:layout_marginLeft="200dp"
+            android:background="@drawable/rounded_border"
+            android:backgroundTint="@color/blue_color"
+            android:shadowRadius="5"
+            android:text="Skip"
+            android:textColor="@color/white" />
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+   </RelativeLayout>

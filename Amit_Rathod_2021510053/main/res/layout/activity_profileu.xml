@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:scrollbars="vertical"
+    tools:context=".ProfileUActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ProfileActivity">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/imageprofL"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/prof_bg"
+            android:scaleType="centerCrop"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:alpha="0.3"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/gradeint"
+            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="175dp"
+            android:id="@+id/imageCard"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="10dp"
+            android:layout_height="120dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgprof"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/prof_bg"
+                android:padding="3dp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="190dp"
+            android:text="--- ----- ---"
+            android:padding="10dp"
+            android:background="@drawable/rounded_border"
+            android:textColor="#488FB1"
+            android:backgroundTint="@color/white"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imageCard"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageprofL"
+            android:layout_marginTop="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/layout1"
+            android:background="#008CBA"
+            android:alpha="0.7">
+
+            <RelativeLayout
+                android:id="@+id/pointLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:padding="25dp">
+
+                <TextView
+                    android:id="@+id/pShopName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="User Name :"
+                    android:textColor="#E1FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtusername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/pShopName"
+                    android:text=" "
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/pointLayout2"
+                android:layout_below="@+id/pointLayout1"
+                android:padding="25dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/pShopAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Address :"
+                    android:textColor="#E1FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtaddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/pShopAdd"
+                    android:lines="3"
+                    android:text=" "
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
+
+
+                </RelativeLayout>
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-----------"
+            android:id="@+id/txtemailcontact"
+            app:layout_constraintTop_toBottomOf="@+id/layout1"
+            android:layout_marginTop="70dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:textSize="15sp"
+            android:textColor="#5E5A5A"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+91---------"
+            android:id="@+id/txtno"
+            app:layout_constraintTop_toBottomOf="@+id/txtemailcontact"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:drawableLeft="@drawable/ic_call"
+            android:drawablePadding="10dp"
+            android:textSize="15sp"
+            android:textColor="#5E5A5A"
+            />
+
+
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
