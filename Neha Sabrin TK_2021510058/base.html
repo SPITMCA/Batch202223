@@ -1,0 +1,87 @@
+{% load static boards_tags %}<!doctype html>
+<html lang="en">
+  <head>
+    {% block title %}
+      <title>Relax - A social network inspired for peace of mind</title>
+    {% endblock %}
+
+    {% include "meta.html" %}
+    {% include "css.html" %}
+    {% include "head_js.html" %}
+
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% include "includes/header.html" %}
+
+    {% comment %}
+      bv stands for "board view". if view renders something inside a board,
+      then pass bv=True in template context.
+    {% endcomment %}
+
+    {% if not bv %}
+      {% if request.user.is_authenticated %}
+        {% boards_container_items request.user %}
+      {% endif %}
+    {% endif %}
+
+    {% if not form_filling %}
+
+      {% if not request.user.is_authenticated %}
+        {% if signup_quote %}
+          {% include "includes/signup_quote.html" %}
+        {% endif %}
+      {% endif %}
+
+      {% if bv %}
+        {% include "includes/board_cover.html" %}
+        {% if request.user.is_authenticated %}
+            {% boards_container_items request.user %}
+        {% endif %}
+      {% endif %}
+
+      {% include "includes/messages.html" %}
+
+      <div class="container my-4 content_block">
+        <div class="row">
+          <div class="col-lg-8 col-md-8">
+            {% block content %}
+            {% endblock %}
+
+            {% if page_obj %}
+              {% include "pagination.html" %}
+            {% endif %}
+          </div>
+
+          <div class="col-lg-4 col-md-4">
+            {% if bv %}
+              {% include "includes/board_info.html" %}
+            {% else %}
+              <a href="{% url 'new_subject' %}" class="btn btn-primary btn-block mt-4 cta_btn">CREATE POST</a>
+              <a href="{% url 'new_board' %}" class="btn btn-outline-primary btn-block mt-2 cta_btn">CREATE BOARD</a>
+              {% if request.user.is_authenticated %}
+                {% show_active_threads request.user %}
+              {% endif %}
+              {% top_five_boards %}
+            {% endif %}
+
+            {% include "includes/footer.html" %}
+          </div>
+        </div>
+      </div>
+
+    {% else %}
+      <div class="container mx-auto my-4 form_content_block">
+        <div class="row">
+          <div class="container mx-auto" style="width: 50%;">
+            {% block form_content %}
+            {% endblock %}
+          </div>
+        </div>
+        {% include "includes/centered_footer.html" %}
+      </div>
+    {% endif %}
+
+    {% include "js.html" %}
+  </body>
+</html>
