@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block title %} Laptop Price Estimator {% endblock title %}
+
+{% block body %}
+			
+			<!-- Content-->
+			<div class="md-content">
+				
+				<!-- Section -->
+				<section class="md-section js-consult-form" style="background-color:#f7f7f7; padding-bottom:35%">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01">
+									<h2 class="title-01__title">Laptop Price Estimator</h2>
+									<div style="text-align:justify">
+										Laptop price prediction especially when the laptop is coming direct from the factory to Electronic Market/
+										Stores, is both a critical and important task. The mad rush that we saw in 2020 for laptops to support remote
+										work and learning is no longer there. In India, demand of Laptops soared after the Nationwide lockdown,
+										leading to 4.1-Million-unit shipments in the June quarter of 2021, the highest in the five years. Accurate Laptop
+										price prediction involves expert knowledge, because price usually depends on many distinctive features and
+										factors. Typically, most significant ones are brand, model, RAM, ROM, GPU and few others.
+									</div>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+						
+						<!-- form-01 -->
+						<div class="form-01 consult-form js-consult-form__content" >
+							<h2 class="form-01__title">Enter the Laptop Specifications</h2>
+							<form method="post" id="formlaptopprice">
+<!--								ROW 1-->
+							  <div class="row">
+
+								<div class="col">
+									<label for="company">Company Name</label>
+								  	<select class="select-picker form-picker" id="company"  name="company" required>
+										{% for comp in companies %}
+											<option value="{{ comp }}">{{ comp }}</option>
+										{% endfor %}
+									</select>
+								</div>
+
+								<div class="col">
+									<label for="type">Product Type</label>
+								  	<select class="select-picker form-picker" id="type"  name="type" required>
+										{% for type in types %}
+											<option value="{{ type }}">{{ type }}</option>
+										{% endfor %}
+									</select>
+							    </div>
+
+							  </div>
+
+							<br>
+
+<!--						Row 2-->
+							  <div class="row">
+
+								  <div class="col">
+									  <label for="touchscreen">Touchscreen</label>
+									  <select class="select-picker form-picker" id="touchscreen"  name="touchscreen" required>
+										<option value="No">No</option>
+									    <option value="Yes">Yes</option>
+									  </select>
+								  </div>
+
+								  <div class="col">
+									  <label for="ips">In-Plane Switching</label>
+									  <select class="select-picker form-picker" id="ips"  name="ips" required>
+										<option value="No">No</option>
+									    <option value="Yes">Yes</option>
+									  </select>
+								  </div>
+
+							  </div>
+
+							  <br>
+
+<!--						Row 3-->
+							  <div class="row">
+
+								  <div class="col">
+									  <label for="ram">RAM</label>
+									  <select class="select-picker form-picker" id="ram"  name="ram" required>
+										{% for size in [2,4,6,8,12,16,24,32,64] %}
+											<option value="{{ size }}">{{ size }}</option>
+										{% endfor %}
+									  </select>
+									</div>
+
+								  <div class="col">
+									  <label for="hdd">Hard Disk Size (GB)</label>
+									  <select class="select-picker form-picker" id="hdd"  name="hdd" required>
+										{% for hddsize in [0,128,256,512,1024,2048] %}
+											<option value="{{ hddsize }}">{{ hddsize }}</option>
+										{% endfor %}
+									  </select>
+								  </div>
+
+								  <div class="col">
+									  <label for="ssd">Solid Sate Disk Size (GB)</label>
+									  <select class="select-picker form-picker" id="ssd"  name="ssd" required>
+										{% for ssdsize in [0,8,128,256,512,1024] %}
+											<option value="{{ ssdsize }}">{{ ssdsize }}</option>
+										{% endfor %}
+									  </select>
+								  </div>
+
+							  </div>
+
+							<br>
+
+<!--						Row 4-->
+							  <div class="row">
+
+								  <div class="col">
+									  <label for="cpu">CPU Brand</label>
+									  <select class="select-picker form-picker" id="cpu"  name="cpu" required>
+										{% for cpu in cpulist %}
+											<option value="{{ cpu }}">{{ cpu }}</option>
+										{% endfor %}
+									  </select>
+								  </div>
+
+								  <div class="col">
+									  <label for="gpu">GPU Brand</label>
+									  <select class="select-picker form-picker" id="gpu"  name="gpu" required>
+										{% for gpu in gpulist %}
+											<option value="{{ gpu }}">{{ gpu }}</option>
+										{% endfor %}
+									  </select>
+								  </div>
+
+								  <div class="col">
+									  <label for="os">OS Brand</label>
+									  <select class="select-picker form-picker" id="os"  name="os" required>
+										{% for os in oslist %}
+											<option value="{{ os }}">{{ os }}</option>
+										{% endfor %}
+									  </select>
+								  </div>
+
+							  </div>
+
+							  <br>
+
+<!--						Row 5-->
+							  <div class="row">
+
+								  <div class="col">
+									<label for="screensize">Screen Size</label>
+									<input class="form-control" type="number" id="screensize" name="screensize" placeholder="Screen Size" min="9" max="20" step="0.01" required>
+								  </div>
+
+								  <div class="col">
+									  <label for="resolution">Screen Resolution</label>
+									  <select class="select-picker form-picker" id="resolution"  name="resolution" required>
+										{% for reso in ['1920x1080','1366x768','1600x900','3840x2160','3200x1800','2880x1800','2560x1600','2560x1440','2304x1440'] %}
+											<option value="{{ reso }}">{{ reso }}</option>
+										{% endfor %}
+									  </select>
+								  </div>
+
+								  <div class="col">
+									<label for="weight">Weight (in kgs)</label>
+									<input class="form-control" type="number" id="weight" name="weight" placeholder="Weight of the Laptop" min="1" max="10" step="0.01" required>
+								</div>
+
+							  </div>
+
+							  <br>
+
+							  <div class="form__button">
+								<button class="btn btn-primary btn-w180" onclick="send_data()">Predict</button>
+							  	<button class="btn btn-primary btn-w180" type="reset"  onclick="clear_lines()">Clear</button>
+							  </div>
+
+							</form>
+						</div><!-- End / form-01 -->
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+				
+				<!-- Section -->
+				<section class="md-section" style="margin-top:-6rem;margin-bottom:-9rem;">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01 title-01__style-05">
+									<h6 class="title-01__subTitle" id="title_pred_laptop_price"></h6>
+									<h2 class="title-02__title" id="txt2"></h2>
+									<h2 class="title-01__title" id="predicted_laptop_value" style="color:#f39c12;"></h2>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+			</div>
+			<!-- End / Content-->
+
+
+<script>
+	function form_handler(event){
+			event.preventDefault();
+		}
+
+	function send_data(){
+		document.getElementById("formlaptopprice").addEventListener("submit", form_handler);
+		var laptopFormData=new FormData(document.getElementById("formlaptopprice"));
+		var xhr=new XMLHttpRequest();
+		xhr.open('POST', '/predict_laptopprice', true);
+		document.getElementById("txt2").innerHTML="The estimated house price is, ";
+		document.getElementById("title_pred_laptop_price").innerHTML="Predicted Laptop Price";
+		document.getElementById("predicted_laptop_value").innerHTML="Waiting....";
+		xhr.onreadystatechange= function(){
+			if(xhr.readyState == XMLHttpRequest.DONE){
+				document.getElementById("predicted_laptop_value").innerHTML="₹" + xhr.responseText;
+			}
+		};
+		xhr.onload = function(){};
+		xhr.send(laptopFormData);
+	}
+
+	function clear_lines(){
+		document.getElementById("txt2").innerHTML="";
+		document.getElementById("title_pred_laptop_price").innerHTML="";
+		document.getElementById("predicted_laptop_value").innerHTML="";
+	}
+</script>
+
+{% endblock body %}

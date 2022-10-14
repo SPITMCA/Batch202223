@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %} Fashion Reverse Image Search Engine{% endblock title %}
+
+{% block body %}
+
+			<!-- Content-->
+			<div class="md-content">
+
+				<!-- Section -->
+				<section class="md-section js-consult-form" style="background-color:#f7f7f7; padding-bottom: 20%;">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01">
+									<h2 class="title-01__title">Fashion Reverse Image Search Engine</h2>
+									<br>
+									<br>
+									<div style="text-align: justify;">Deep Learning is changing the fashion industry by training your own visual recommendation model for similar fashion images using TensorFlow. The simple concept of an Information Retrieval System is to compute the similarity between a query and the information/features available in the database and return the most similar items. In the case of an Image Retrieval System, we extract the features of all the images from the database and store them. Then when a query image arrives, we extract its features and compute the similarity between the features of the query image and the features of the images from our database. Finally, top n similar images are returned to the user.</div>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+
+						<!-- form-01 -->
+						<div class="form-01 consult-form js-consult-form__content">
+							<h2 class="form-01__title">Upload an image</h2>
+							<form method="post" id="clothform">
+								<div class="form__item ">
+									<label for="file">Choose</label>
+									<input type="file" name="file" id="file" onchange="readURL(this);" />
+									<br>
+<!--    								<img id="uploadimg" alt="your image" style="display:none;"/>-->
+								</div>
+
+								<div class="form__item" id="uploaded_img_div" style="display:none;">
+									<div>
+										<h4>Your uploaded image</h4>
+									</div>
+									<div>
+										<img id="uploadimg" alt="your image" />
+									</div>
+								</div>
+
+
+								<div class="form__button" style="padding-top: 10%">
+								<button class="btn btn-primary btn-w180" onclick="send_data()">Predict</button>
+							  	<button class="btn btn-primary btn-w180" type="reset"  onclick="clear_movies()">Clear</button>
+							  </div>
+							</form>
+						</div><!-- End / form-01 -->
+
+					</div>
+				</section>
+				<!-- End / Section -->
+
+				<!-- Section -->
+				<section class="md-section " style="background-color:#C0C9CC;">
+					<div class="container">
+
+						<h6 class="title-01__subTitle" id="movietitle" style="color:black; text-align: center;"></h6>
+						<div class="row" style="display:none;" id="recommendation">
+
+								<div class="col-md-4 col-lg-4 ">
+									<!-- textbox -->
+									<div class="textbox">
+										<div class="textbox__image">
+											<img id="mov_img1" alt=""/>
+										</div>
+									</div><!-- End / textbox -->
+								</div>
+
+								<div class="col-md-4 col-lg-4 ">
+									<!-- textbox -->
+									<div class="textbox">
+										<div class="textbox__image">
+											<img id="mov_img2" alt=""/>
+										</div>
+									</div><!-- End / textbox -->
+								</div>
+
+								<div class="col-md-4 col-lg-4 ">
+									<!-- textbox -->
+									<div class="textbox">
+										<div class="textbox__image">
+											<img id="mov_img3" alt=""/>
+										</div>
+									</div><!-- End / textbox -->
+								</div>
+
+								<div class="col-md-4 col-lg-4 ">
+									<!-- textbox -->
+									<div class="textbox">
+										<div class="textbox__image">
+											<img id="mov_img4" alt=""/>
+										</div>
+									</div><!-- End / textbox -->
+								</div>
+
+								<div class="col-md-4 col-lg-4 ">
+									<!-- textbox -->
+									<div class="textbox">
+										<div class="textbox__image">
+											<img id="mov_img5" alt=""/>
+										</div>
+									</div><!-- End / textbox -->
+								</div>
+
+							</div><!--			Row 1 ends				-->
+
+					</div>
+				</section>
+				<!-- End / Section -->
+
+			</div>
+			<!-- End / Content-->
+
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+	<script>
+		function form_handler(event){
+			event.preventDefault();
+		}
+
+		function send_data(){
+			document.getElementById("clothform").addEventListener("submit", form_handler);
+			var clothFormData=new FormData(document.getElementById("clothform"));
+			var rows=document.getElementById("recommendation");
+			if (rows.style.display == "none") {
+				rows.style.display = "flex";
+		  	}
+
+		  	var xhr=new XMLHttpRequest();
+			xhr.open('POST', '/recommend_clothes', true);
+			xhr.onreadystatechange= function(){
+				if(xhr.readyState == XMLHttpRequest.DONE){
+					var suggested_clothes=JSON.parse(xhr.responseText).recommended_clothes;
+					console.log(suggested_clothes)
+					document.getElementById("movietitle").innerHTML = "Top 5 Similar Products";
+					console.log(suggested_clothes[0])
+					console.log(suggested_clothes[1])
+					document.getElementById("mov_img1").src=String(suggested_clothes[0]);
+					document.getElementById("mov_img2").src=String(suggested_clothes[1]);
+					document.getElementById("mov_img3").src=String(suggested_clothes[2]);
+					document.getElementById("mov_img4").src=String(suggested_clothes[3]);
+					document.getElementById("mov_img5").src=String(suggested_clothes[4]);
+				}
+			};
+
+			xhr.onload = function(){};
+			xhr.send(clothFormData);
+	  	}
+
+		function clear_movies(){
+		document.getElementById("uploadimg").src="";
+		document.getElementById("uploaded_img_div").style.display="none";
+			var rows=document.getElementById("recommendation");
+			if (rows.style.display == "flex") {
+				rows.style.display = "none";
+				document.getElementById("movietitle").innerHTML = ""
+		  	}
+		}
+
+	  function readURL(input) {
+		document.getElementById("uploaded_img_div").style.display="block";
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+				$('#uploadimg')
+					.attr('src', e.target.result)
+					.width(300)
+					.height(350);
+			};
+
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	</script>
+
+
+{% endblock body %}

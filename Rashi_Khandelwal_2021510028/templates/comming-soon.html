@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Under Construction {% endblock title %}
+
+{% block body %}
+
+			<!-- Content-->
+			<div class="md-content">
+				
+				<!-- Section -->
+				<section class="md-section md-text-center" style="height:100vh;padding-top:100px;">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-10 offset-0 offset-sm-0 offset-md-0 offset-lg-1 ">
+								<div class="consult-commingsoon">
+									<h3 style="color: #f39c12;"><a href="#">Under Construction</a></h3>
+									<h4>This functionality is under development</h4>
+									
+									<!-- countdown__module hide undefined -->
+									<div class="countdown__module hide undefined" data-date="2022/07/31">
+										<p><span>%D</span><strong> Days</strong></p>
+										<p><span>%H</span><strong> Hours</strong></p>
+										<p><span>%M</span><strong> Minutes</strong></p>
+										<p><span>%S</span><strong> Seconds</strong></p>
+									</div><!-- End / countdown__module hide undefined -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+			</div>
+			<!-- End / Content-->
+
+{% endblock body %}

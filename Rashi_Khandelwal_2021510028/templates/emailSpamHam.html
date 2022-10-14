@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %} Email Spam Ham Classification {% endblock title %}
+
+{% block body %}
+			
+			<!-- Content-->
+			<div class="md-content">
+				
+				<!-- Section -->
+				<section class="md-section js-consult-form" style="background-color:#f7f7f7;">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								
+								<!-- title-01 -->
+								<div class="title-01">
+									<h2 class="title-01__title">Email Spam Ham Classification</h2>
+									<div style="text-align: justify;margin-bottom:10em;">The upsurge in the volume of unwanted emails called spam has created an intense need for the development of more dependable and robust antispam filters. Machine learning methods of recent are being used to successfully detect and filter spam emails. These ML techniques have the capacity to learn and identify spam mails and phishing messages by analyzing loads of such messages throughout a vast collection of computers. They generate new rules themselves based on what they have learnt as they continue in their spam filtering operation. </div>
+								</div><!-- End / title-01 -->
+								
+							</div>
+						</div>
+
+
+						<!-- form-01 -->
+						<div class="form-01 consult-form js-consult-form__content">
+							<h2 class="form-01__title">Predict Spam or Not Spam Email</h2>
+							<form method="post" id="emailmsgform">
+
+								<div class="form__item">
+									<label for="email_sms">Email or Message</label>
+									<textarea rows="5" style="max-width: 100em; resize:none;" id="email_sms"  name="email_sms" placeholder="Type your message or email here."></textarea>
+								</div>
+								<div class="form__button">
+									<button class="btn btn-primary btn-w180" onclick="send_data()">Predict</button>
+									<button class="btn btn-primary btn-w180" type="reset"  onclick="clear_lines()">Clear</button>
+								</div>
+							</form>
+						</div><!-- End / form-01 -->
+					</div>
+				</section>
+				<!-- End / Section -->
+
+				<!-- Section -->
+				<section class="md-section" style="margin-top:-6rem;margin-bottom:-9rem;">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01 title-01__style-05">
+									<h6 class="title-01__subTitle" id="title_pred_email_type"></h6>
+									<h2 class="title-02__title" id="txt2"></h2>
+									<h2 class="title-01__title" id="predicted_email_type" style="color:#f39c12;"></h2>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+			</div>
+			<!-- End / Content-->
+
+	<script>
+		function form_handler(event){
+			event.preventDefault();
+		}
+
+		function send_data(){
+			document.getElementById("emailmsgform").addEventListener("submit", form_handler);
+			var emailsmsFormData=new FormData(document.getElementById("emailmsgform"));
+			var xhr=new XMLHttpRequest();
+			xhr.open('POST', '/predict_email', true);
+			document.getElementById("txt2").innerHTML="The predicted email type is - ";
+			document.getElementById("title_pred_email_type").innerHTML="Predicted Email Category";
+			document.getElementById("predicted_email_type").innerHTML="Waiting....";
+			xhr.onreadystatechange= function(){
+				if(xhr.readyState == XMLHttpRequest.DONE){
+					document.getElementById("predicted_email_type").innerHTML=xhr.responseText;
+				}
+			};
+			xhr.onload = function(){};
+			xhr.send(emailsmsFormData);
+		}
+
+		function clear_lines(){
+			document.getElementById("txt2").innerHTML="";
+			document.getElementById("title_pred_email_type").innerHTML="";
+			document.getElementById("predicted_email_type").innerHTML="";
+		}
+	</script>
+
+{% endblock body %}

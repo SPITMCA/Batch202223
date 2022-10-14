@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %} Currency Convertor Chatbot{% endblock title %}
+
+{% block body %}
+
+			<!-- Content-->
+			<div class="md-content">
+
+				<!-- Section -->
+				<section class="md-section js-consult-form" style="padding-bottom: 10%;">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01">
+									<h2 class="title-01__title">Currency Convertor Chatbot</h2>
+									<div style="text-align: justify;">
+										A chatbot (Conversational AI) is an automated program that simulates human conversation through text messages, voice chats, or both. It learns to do that based on a lot of inputs, and Natural Language Processing (NLP). The following Currency Convertor Chatbot is built using Dialogflow, powered by Google Cloud, that accept voice and text data. This chatbot is capable of converting amount in one currency to another specified currency.
+									</div>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+
+
+					</div>
+				</section>
+				<!-- End / Section -->
+
+				<!-- Section -->
+				<section class="md-section" style="background-color:#e7e7e7; ">
+					<div class="container">
+							<iframe allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/b90e06f8-42e6-4f64-a769-ffe682537b2e">
+							</iframe>
+					</div>
+				</section>
+				<!-- End / Section -->
+
+			</div>
+			<!-- End / Content-->
+
+	<script>
+		function form_handler(event){
+			event.preventDefault();
+		}
+
+		function send_data(){
+			document.getElementById("movieform").addEventListener("submit", form_handler);
+			var movieFormData=new FormData(document.getElementById("movieform"));
+			var rows=document.getElementById("recommendation");
+			if (rows.style.display == "none") {
+				rows.style.display = "flex";
+		  	}
+
+		  	var xhr=new XMLHttpRequest();
+			xhr.open('POST', '/recommend_movie', true);
+			xhr.onreadystatechange= function(){
+				if(xhr.readyState == XMLHttpRequest.DONE){
+					var suggested_movies=JSON.parse(xhr.responseText).recommended_movie_names;
+					var posters=JSON.parse(xhr.responseText).recommended_movie_posters;
+					document.getElementById("mov_name1").innerHTML=suggested_movies[0];
+					document.getElementById("mov_name2").innerHTML=suggested_movies[1];
+					document.getElementById("mov_name3").innerHTML=suggested_movies[2];
+					document.getElementById("mov_name4").innerHTML=suggested_movies[3];
+					document.getElementById("mov_name5").innerHTML=suggested_movies[4];
+					document.getElementById("mov_img1").src=posters[0];
+					document.getElementById("mov_img2").src=posters[1];
+					document.getElementById("mov_img3").src=posters[2];
+					document.getElementById("mov_img4").src=posters[3];
+					document.getElementById("mov_img5").src=posters[4];
+				}
+			};
+
+			xhr.onload = function(){};
+			xhr.send(movieFormData);
+
+
+	  	}
+		function clear_movies(){
+			var rows=document.getElementById("recommendation");
+			if (rows.style.display == "flex") {
+				rows.style.display = "none";
+		  	}
+		}
+
+
+	</script>
+
+
+{% endblock body %}

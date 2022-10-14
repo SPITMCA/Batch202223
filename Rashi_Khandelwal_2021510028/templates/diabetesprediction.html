@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %} PIMA INDIANS DIABETES Prediction {% endblock title %}
+
+{% block body %}
+
+			<!-- Content-->
+			<div class="md-content">
+
+				<!-- Section -->
+				<section class="md-section js-consult-form" style="background-color:#f7f7f7; padding-bottom:35%">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01">
+									<h2 class="title-01__title">PIMA Indians Diabetes Prediction</h2>
+									<br>
+									<div style="text-align:justify">
+										Diabetes, is a group of metabolic disorders in which there are high blood sugar levels over a prolonged period. Symptoms of high blood sugar include frequent urination, increased thirst, and increased hunger. If left untreated, diabetes can cause many complications. The latest advances in Machine learning technologies can be applied for obtaining hidden patterns, which may diagnose diabetes at an early phase. The objective of this appllication is to diagnostically predict whether or not a patient has diabetes, based on certain diagnostic measurements.
+									</div>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+
+						<!-- form-01 -->
+						<div class="form-01 consult-form js-consult-form__content" >
+							<h2 class="form-01__title">Enter the following diagnostic parameters.</h2>
+							<form method="post" id="formdiabetes" class="form-01__form">
+								<div class="form__item form__item--02">
+									<label for="pregnancy">Number of Pregnancies</label>
+									<input id="pregnancy" type="number" min="0" max="17" name="pregnancy" placeholder="0 to 17" required="required" />
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="glucose">Glucose Concentration</label>
+									<input id="glucose" type="number" min="0" max="199" name="glucose" step="0.01" placeholder="0 to 199" required="required" />
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="bp">Diastolic Blood Pressure</label>
+									<input id="bp" type="number" min="0" max="122" step="0.01" name="bp" placeholder="0 mm/Hg to 122 mm/Hg" required="required" />
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="skinthickness">Skin Thickness</label>
+									<input id="skinthickness" type="number" min="0" max="99" step="0.01" name="skinthickness" placeholder="0 mm to 99 mm" required="required" />
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="age">Age</label>
+									<input id="age" type="number" name="age" min="21" max="81" placeholder="21 to 81" required="required"/>
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="insulin">Insulin</label>
+									<input id="insulin" type="number" name="insulin" min="0" max="846" step="0.01" placeholder="0 mu U/ml to 846 mu U/ml" required="required" />
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="bmi">Body Mass Index </label>
+									<input id="bmi" type="number" min="0" max="67.1" step="0.01" name="bmi" placeholder="0 to 67.1" required="required"/>
+								</div>
+
+								<div class="form__item form__item--02">
+									<label for="pedigree">Predigree Function </label>
+									<input id="pedigree" type="number" min="0.08" max="2.42" placeholder="0.08 to 2.42" step="0.01" name="pedigree" required="required" />
+								</div>
+
+								<div class="form__button">
+									<button class="btn btn-primary btn-w180" onclick="send_data()">Predict</button>
+									<button class="btn btn-primary btn-w180" type="reset" onclick="clear_lines()">Clear</button>
+								</div>
+
+							</form>
+						</div><!-- End / form-01 -->
+					</div>
+				</section>
+				<!-- End / Section -->
+
+
+				<!-- Section -->
+				<section class="md-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01 title-01__style-05">
+									<h6 class="title-01__subTitle" id="title_pred_diabetes"></h6>
+									<h2 class="title-02__title" id="txt2"></h2>
+									<h2 class="title-01__title" id="predicted_diabetes" style="color:#f39c12;"></h2>
+								</div><!-- End / title-01 -->
+
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+
+			</div>
+			<!-- End / Content-->
+
+<script>
+	function form_handler(event){
+			event.preventDefault();
+		}
+
+	function send_data(){
+		document.getElementById("formdiabetes").addEventListener("submit", form_handler);
+		var diabetesFormData=new FormData(document.getElementById("formdiabetes"));
+		var xhr=new XMLHttpRequest();
+		xhr.open('POST', '/predict_diabetes', true);
+		document.getElementById("title_pred_diabetes").innerHTML="Predicted Diabetes Status";
+		document.getElementById("predicted_diabetes").innerHTML="Waiting....";
+		xhr.onreadystatechange= function(){
+			if(xhr.readyState == XMLHttpRequest.DONE){
+				if(xhr.responseText=="1"){
+					document.getElementById("txt2").innerHTML="Please get a medical diagnosis done, you seem to be ";
+					document.getElementById("predicted_diabetes").innerHTML= " prone to Diabetes. ";
+				}
+				else{
+					document.getElementById("txt2").innerHTML="Congraluations, you are";
+					document.getElementById("predicted_diabetes").innerHTML= " non-diabetic";
+				}
+			}
+		};
+		xhr.onload = function(){};
+		xhr.send(diabetesFormData);
+	}
+
+	function clear_lines(){
+		document.getElementById("txt2").innerHTML="";
+		document.getElementById("title_pred_diabetes").innerHTML="";
+		document.getElementById("predicted_diabetes").innerHTML="";
+	}
+</script>
+
+{% endblock body %}

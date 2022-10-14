@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>{% block title %} {% endblock title %} - MLAppHub</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="../static/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../static/fonts/themify-icons/themify-icons.css">
+		<!-- Vendors-->
+		<link rel="stylesheet" type="text/css" href="../static/vendors/bootstrap4/bootstrap-grid.min.css">
+		<link rel="stylesheet" type="text/css" href="../static/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="../static/vendors/owl.carousel/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" href="../static/vendors/_jquery/jquery.min.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+		<link rel="stylesheet" type="text/css" href="../static/css/main.css"><!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+	<div class="page-wrap">
+			<!-- header -->
+
+			<header class="header {% if request.endpoint=='home' %}header__style-02{% endif %}">
+				<div class="container">
+					<div class="header__logo"><a href="index.html"><img src="../static/img/MLlogo.png" alt=""/></a></div>
+					<div class="header__toogleGroup">
+
+					<!-- consult-nav -->
+					<nav class="consult-nav">
+
+						<!-- consult-menu -->
+						<ul class="consult-menu">
+
+						<!--Home-->
+							<li class="{% if request.endpoint=='home' %}current-menu-item{% endif %}">
+								<a href="index.html">Home</a>
+							</li>
+
+						<!--About-->
+							<li class="{% if request.endpoint=='about' %}current-menu-item{% endif %}">
+								<a href="about.html">About</a>
+							</li>
+
+
+						<!--Applications-->
+							<li class="menu-item-has-children {% if request.endpoint=='project' %}current-menu-item{% endif %}">
+								<a href="project.html">Applications</a>
+								<ul class="sub-menu ">
+
+									<!--Classification-->
+									<li class="menu-item-has-children">
+										<a href="project.html">Classification</a>
+										<ul class="sub-menu ">
+											<li>
+												<a href="comming-soon.html">Titanic Survival Prediction</a>
+											</li>
+											<li>
+												<a href="diabetesprediction.html">India PIMA Diabetes Prediction</a>
+											</li>
+										</ul>
+									</li>
+
+									<!--Regression-->
+									<li class="menu-item-has-children">
+										<a href="project.html">Regression</a>
+										<ul class="sub-menu ">
+											<li>
+												<a href="laptopprice.html">Laptop Price</a>
+											</li>
+											<li>
+												<a href="houseprice.html">Bengaluru House Price</a>
+											</li>
+										</ul>
+									</li>
+
+
+									<!--Recommendation Engine-->
+									<li class="menu-item-has-children">
+										<a href="project.html">Recommendation Engine</a>
+										<ul class="sub-menu ">
+											<li class="menu-item-has-children">
+												<a href="comming-soon.html">Collaborative</a>
+												<ul class="sub-menu ">
+													<li>
+														<a href="comming-soon.html">Books</a>
+													</li>
+												</ul>
+											</li>
+											<li class="menu-item-has-children">
+												<a href="moviesrecommendor.html">Content-Based</a>
+												<ul class="sub-menu ">
+													<li>
+														<a href="moviesrecommendor.html">Movies</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+
+									<!--NLP-->
+									<li class="menu-item-has-children">
+										<a href="project.html">NLP</a>
+										<ul class="sub-menu ">
+											<li>
+												<a href="emailSpamHam.html">Email Spam/Ham</a>
+											</li>
+											<li>
+												<a href="duplicatequesdetector.html">Duplicate Question Pairs Identification</a>
+											</li>
+										</ul>
+									</li>
+
+									<!--Chatbot-->
+									<li class="menu-item-has-children">
+										<a href="#">Chatbot</a>
+										<ul class="sub-menu ">
+											<li>
+												<a href="currencyconvertorchatbot.html">Currency Convertor</a>
+											</li>
+										</ul>
+									</li>
+
+									<!--Deep Learning-->
+									<li class="menu-item-has-children">
+										<a href="project.html">Deep Learning</a>
+										<ul class="sub-menu ">
+											<li>
+												<a href="stockprice.html">Time Series - Stock Price Prediction</a>
+											</li>
+											<li>
+												<a href="bodyposture.html">Body Posture Detector</a>
+											</li>
+											<li>
+												<a href="clothesrecommendor.html">Fashion Reverse Image Search Engine</a>
+											</li>
+										</ul>
+									</li>
+
+								</ul>
+							</li>
+
+							<li class="{% if request.endpoint=='contact' %}current-menu-item{% endif %}">
+								<a href="contactupdated.html">contact</a>
+							</li>
+
+						</ul><!-- consult-menu -->
+
+						<div class="navbar-toggle"><span></span><span></span><span></span></div>
+					</nav><!-- End / consult-nav -->
+
+				</div>
+			</div>
+		</header><!-- End / header -->
+
+            {% block body %}
+            {% endblock body %}
+
+
+		<!-- footer -->
+			<footer class="footer">
+				<div class="footer__main">
+					<div class="row row-eq-height">
+						<div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
+							<div class="footer__item"><a class="consult_logo" href="#"><img src="../static/img/logo.png" alt=""/></a>
+								<p>A web application demonstrating various implementations of Machine Learning in different domains.</p>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
+							<div class="footer__item">
+
+									<!-- widget-text__widget -->
+									<section class="widget-text__widget widget">
+										<div class="widget-text__content">
+											<ul>
+												<li><a href="{{ url_for('emailSpamHam') }}">Email Spam/Ham </a></li>
+												<li><a href="diabetesprediction.html">Indian PIMA Diabetes </a></li>
+												<li><a href="{{ url_for('stockprice') }}">Stock Market</a></li>
+												<li><a href="laptopprice.html">Laptop Price</a></li>
+											</ul>
+										</div>
+									</section><!-- End / widget-text__widget -->
+
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+							<div class="footer__item">
+
+									<!-- widget-text__widget -->
+									<section class="widget-text__widget widget">
+										<div class="widget-text__content">
+											<ul>
+												<li><a href="{{ url_for('houseprice') }}">Bengaluru House Price </a></li>
+												<li><a href="/moviesrecommendor.html">Movies Recommendation</a></li>
+												<li><a href="comming-soon.html">Books Suggestion</a></li>
+												<li><a href="duplicatequesdetector.html">Duplicate Question Pairs</a></li>
+											</ul>
+										</div>
+									</section><!-- End / widget-text__widget -->
+
+							</div>
+						</div>
+						<div class="col-md-4 col-lg-2 col-xl-2 ">
+							<div class="footer__item">
+
+									<!-- widget-text__widget -->
+									<section class="widget-text__widget widget">
+										<div class="widget-text__content">
+											<ul>
+												<li><a href="currencyconvertorchatbot.html">Currency Convertor</a></li>
+												<li><a href="bodyposture.html">Body Posture Detector</a></li>
+												<li><a href="clothesrecommendor.html">Fashion Reverse Image Search Engine</a></li>
+											</ul>
+										</div>
+									</section><!-- End / widget-text__widget -->
+
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2  consult_backToTop">
+							<div class="footer__item"><a href="#" id="back-to-top"> <i class="fa fa-angle-up" aria-hidden="true"> </i><span>Back To Top</span></a></div>
+						</div>
+					</div>
+				</div>
+				<div class="footer__copyright">&copy; Copyright Rashi Khandelwal. All rights Reserved.</div>
+			</footer><!-- End / footer -->
+
+
+	</div>
+
+
+            <!-- Vendors-->
+		<script type="text/javascript" src="../static/vendors/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="../static/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="../static/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/jquery.countUp/jquery.countup.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="../static/vendors/owl.carousel/owl.carousel.js"></script>
+		<script type="text/javascript" src="../static/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/menu/menu.min.js"></script>
+		<script type="text/javascript" src="../static/vendors/smoothscroll/SmoothScroll.min.js"></script>
+		<!-- App-->
+		<script type="text/javascript" src="../static/js/main.js"></script>
+	</body>
+</html>
