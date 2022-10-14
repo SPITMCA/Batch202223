@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+
+{% block title %} Project {% endblock title %}
+
+{% block body %}
+
+	<!-- Content-->
+	<div class="md-content">
+
+		<!-- page-title -->
+		<div class="page-title" style="padding-top:5em;padding-bottom:5em;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
+						<h2 class="page-title__title"> Application Projects</h2>
+
+						<!--  -->
+						<nav><a class="breadcrumb__item" href="#">Home</a><span class="breadcrumb__item active">Applications</span>
+						</nav><!-- End /  -->
+
+					</div>
+				</div>
+			</div>
+		</div><!-- End / page-title -->
+
+
+		<!-- Section -->
+		<section class="md-section" style="padding-top:5em;">
+			<div class="container">
+				<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="1" data-gap="30">
+					<div class="filter">
+						<ul class="filter__list">
+							<li><a href="#" data-filter="*">All</a></li>
+							<li><a href="#" data-filter=".classification">Classification</a></li>
+							<li><a href="#" data-filter=".regression">Regression</a></li>
+							<li><a href="#" data-filter=".recommendation">Recommendation Engine</a></li>
+							<li><a href="#" data-filter=".nlp">NLP</a></li>
+							<li><a href="#" data-filter=".chatbots">Chatbots</a></li>
+							<li><a href="#" data-filter=".deeplearning">Deep Learning</a></li>
+						</ul>
+					</div>
+					<div class="grid__inner">
+
+						<div class="grid-sizer"></div>
+
+						<!-- Classification -->
+						<div class="grid-item classification">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="diabetesprediction.html"><img src="../static/img/projects/diabetes.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="diabetesprediction.html">Indian PIMA Diabetes Detection</a></h2>
+											<div class="post-02__department">Classification</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Regression -->
+						<div class="grid-item regression">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="houseprice.html"><img src="../static/img/projects/house.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="houseprice.html">Bengaluru House Price Prediction</a></h2>
+											<div class="post-02__department">Regression: Commodity Price</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+
+						<div class="grid-item regression">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="laptopprice.html"><img src="../static/img/projects/laptop.png" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="laptopprice.html">Laptop Price Approximation</a></h2>
+											<div class="post-02__department">Regression: Commodity Price</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+
+						<!-- Recommendation-->
+						<div class="grid-item recommendation">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="comming-soon.html"><img src="../static/img/projects/books.png" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="comming-soon.html">Books Recommendation System</a></h2>
+											<div class="post-02__department">Collaborative</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item recommendation">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="moviesrecommendor.html"><img src="../static/img/projects/movies.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="moviesrecommendor.html">Movies Recommendation System</a></h2>
+											<div class="post-02__department">Content-Based</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<!-- NLP-->
+						<div class="grid-item nlp">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="duplicatequesdetector.html"><img src="../static/img/projects/duplicate.png" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="duplicatequesdetector.html">Duplicate Question Pairs Identification</a></h2>
+											<div class="post-02__department">NLP</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item nlp">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="emailSpamHam.html"><img src="../static/img/projects/email.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="emailSpamHam.html">Spam Ham Email Segregation</a></h2>
+											<div class="post-02__department">Classification</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Chatbots-->
+						<div class="grid-item chatbots">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="currencyconvertorchatbot.html"><img src="../static/img/projects/currency.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="currencyconvertorchatbot.html">Currency Conversion Assistant</a></h2>
+											<div class="post-02__department">Chatbots</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Deep Learning -->
+						<div class="grid-item deeplearning">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="stockprice.html"><img src="../static/img/projects/stock.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="stockprice.html">Stock Price Movement</a></h2>
+											<div class="post-02__department">Regression: Time Series</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item deeplearning">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="clothesrecommendor.html"><img src="../static/img/projects/clothes.jpeg" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="clothesrecommendor.html">Reverse Fashion Image Search Engine</a></h2>
+											<div class="post-02__department">Deep Learning</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+
+						<div class="grid-item deeplearning">
+							<div class="grid-item__inner">
+								<div class="grid-item__content-wrapper">
+
+									<!-- post-02 -->
+									<div class="post-02">
+										<div class="post-02__media"><a href="bodyposture.html"><img src="../static/img/projects/posenet.png" alt=""/></a></div>
+										<div class="post-02__body">
+											<h2 class="post-02__title"><a href="bodyposture.html">Body Posture Detector</a></h2>
+											<div class="post-02__department">Deep Learning</div>
+										</div>
+									</div><!-- End / post-02 -->
+
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="text-center"><a class="btn btn-primary btn-w180" href="#">Load more</a></div>
+			</div>
+		</section>
+		<!-- End / Section -->
+
+	</div>
+	<!-- End / Content-->
+
+
+{% endblock body %}

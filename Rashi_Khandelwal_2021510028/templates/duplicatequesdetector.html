@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %} Duplicate Question Detector {% endblock title %}
+
+{% block body %}
+			
+			<!-- Content-->
+			<div class="md-content">
+				
+				<!-- Section -->
+				<section class="md-section js-consult-form" style="background-color:#f7f7f7; padding-bottom:35%">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01">
+									<h2 class="title-01__title">Duplicate Question Detector</h2>
+									<div style="text-align:justify">Identifying semantically identical questions on, Question and Answering(Q&A) social media 			platforms like Quora is exceptionally
+											significant to ensure that the quality and the quantity of content
+											are presented to users, based on the intent of the question and
+											thus enriching overall user experience. Detecting duplicate questions is a challenging problem because natural language is very
+											expressive, and a unique intent can be conveyed using different
+											words, phrases, and sentence structuring. Machine learning and
+											deep learning methods are known to have accomplished superior
+											results over traditional natural language processing techniques in
+											identifying similar texts.
+									</div>
+								</div><!-- End / title-01 -->
+							</div>
+						</div>
+						
+						<!-- form-01 -->
+						<div class="form-01 consult-form js-consult-form__content" >
+							<h2 class="form-01__title">Enter two questions to be checked for duplicacy</h2>
+							<form method="post" id="formquestionduplicate">
+
+							  <div class="form-group row">
+								<label for="ques1">Question 1</label>
+								<div class="col-sm-10">
+								  <textarea rows="3" style="max-width: 100em; resize:none;" id="ques1"  name="ques1" placeholder="Type your 1st question here."></textarea>
+								</div>
+							  </div>
+
+							  <br>
+
+							  <div class="form-group row">
+								<label for="ques1">Question 2</label>
+								<div class="col-sm-10">
+								  <textarea rows="3" style="max-width: 100em; resize:none;" id="ques2"  name="ques2" placeholder="Type your 2nd question here."></textarea>
+								</div>
+							  </div>
+
+							  <br>
+
+							  <div class="form__button">
+								<button class="btn btn-primary btn-w180" onclick="send_data()">Identify</button>
+								<button class="btn btn-primary btn-w180" type="reset"  onclick="clear_lines()">Clear</button>
+							  </div>
+
+							</form>
+						</div><!-- End / form-01 -->
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+				
+				<!-- Section -->
+				<section class="md-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+								<!-- title-01 -->
+								<div class="title-01 title-01__style-05">
+									<h6 class="title-01__subTitle" id="title_pred_duplicate_ques"></h6>
+									<h2 class="title-02__title" id="txt2"></h2>
+									<h2 class="title-01__title" id="predicted_duplication" style="color:#f39c12;"></h2>
+								</div><!-- End / title-01 -->
+								
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+			</div>
+			<!-- End / Content-->
+
+
+
+
+
+
+
+
+
+
+<script>
+	function form_handler(event){
+			event.preventDefault();
+		}
+
+	function send_data(){
+		document.getElementById("formquestionduplicate").addEventListener("submit", form_handler);
+		var questionFormData=new FormData(document.getElementById("formquestionduplicate"));
+		var xhr=new XMLHttpRequest();
+		xhr.open('POST', '/predict_duplicatequestions', true);
+		document.getElementById("txt2").innerHTML="The above question are ";
+		document.getElementById("title_pred_duplicate_ques").innerHTML="Predicted Question Duplicacy";
+		document.getElementById("predicted_duplication").innerHTML="Waiting....";
+		xhr.onreadystatechange= function(){
+			if(xhr.readyState == XMLHttpRequest.DONE){
+				document.getElementById("predicted_duplication").innerHTML= xhr.responseText;
+			}
+		};
+		xhr.onload = function(){};
+		xhr.send(questionFormData);
+	}
+
+	function clear_lines(){
+		document.getElementById("txt2").innerHTML="";
+		document.getElementById("title_pred_duplicate_ques").innerHTML="";
+		document.getElementById("predicted_duplication").innerHTML="";
+	}
+</script>
+
+{% endblock body %}
