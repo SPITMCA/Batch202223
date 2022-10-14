@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="8dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="25dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_choose_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded_border"
+        android:backgroundTint="@color/blue_color"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Choose Image"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/edit_text_file_name"
+        android:layout_width="257dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@+id/button_choose_image"
+        android:background="@drawable/rounded_border"
+        android:ems="10"
+        android:hint="Enter Description"
+        android:lines="3"
+        android:paddingStart="10dp"
+        android:textColor="@color/blue_color"
+        android:textColorHint="@color/blue_color" />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="400dp"
+        android:layout_height="371dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_above="@id/progress_bar"
+        android:layout_below="@id/edit_text_file_name"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="64dp"
+        android:background="@color/blue_color"
+        android:alpha="0.7"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_upload"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="50dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/rounded_border"
+        android:backgroundTint="@color/blue_color"
+        android:text="Upload"
+        android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/text_view_show_uploads"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/button_upload"
+            android:layout_alignBottom="@+id/button_upload"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/button_upload"
+            android:background="#534340"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Show Uploads"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
