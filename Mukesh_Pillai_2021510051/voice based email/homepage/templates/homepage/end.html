@@ -1,0 +1,44 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <body style="background-image: linear-gradient(to bottom right,orange,blue); background-size:cover; background-repeat: no-repeat;" >
+		<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+			<a class="navbar-brand" style="font-size:150%;">VOICE BASED EMAIL </a>
+		</nav>
+		<br><br><br>
+		<br><br><br>
+		<div class="text-center text-white" >
+			<div class="content">
+				<div class="container">
+					<h1  style="margin-top:-60px; font-size:60px;color: black; position: center;" >THANK YOU</h1>
+
+				<form action="homepage/end.html" method="POST">
+					<br><br><br><br>
+					<div class="container" >
+
+
+						<div class="login" id = "here">
+							<script>
+								$(document).ready(function(){
+								setInterval(function(){
+									  $("#here").load(window.location.href + " #here" );
+								}, 1000);
+								});
+								</script>
+
+
+
+							</div>
+						</div>
+				</form>
+					</div>
+				</div>
+		</div>
+
+		<script>
+
+			</script>
+
+
+</body>
+{% endblock %}

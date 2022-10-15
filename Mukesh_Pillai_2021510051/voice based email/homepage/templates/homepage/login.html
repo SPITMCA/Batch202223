@@ -1,0 +1,74 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <body onmousemove= "SendPostRequestHome(event)" style="background-image: linear-gradient(to bottom right,orange,blue); background-size:cover; background-repeat: no-repeat;" >
+		<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+			<a class="navbar-brand" style="font-size:150%;">VOICE BASED EMAIL </a>
+		</nav>
+		<br><br><br>
+		<br><br><br>
+		<div class="text-center text-white" >
+			<div class="content">
+				<div class="container">
+					<h1  style="margin-top:-60px; font-size:60px;color: black; position: center;" >LOGIN </h1>
+					
+				<form action="homepage/login.html" method="POST">
+					<br><br><br><br>
+					<div class="container" >
+						
+						
+						<div class="login" id = "here">
+							<script> 
+								$(document).ready(function(){
+								setInterval(function(){
+									  $("#here").load(window.location.href + " #here" );
+								}, 1000);
+								});
+								</script>
+							
+							{% csrf_token %}
+							  <h3 style="color: black;text-align: left;margin-left: 10%;">Email:</h3>
+					
+							<input type="text" placeholder = "Email" name="email"required value={{detail.email}} >
+					
+							  <br><br>
+							  <h3 style="color: black;text-align: left;margin-left: 10%;">Password: </h3>
+							 <input type = "password" placeholder = "Password" name="password"required value={{detail.password}} >
+					
+							   <a href="options.html"> 
+								<input class="btn btn-primary btn-xl rounded-pill mt-5" role="button" type="submit" value="LOGIN"style="background-color: black;"></a>
+							  <br>
+							  
+							  
+							</div>
+						</div>
+				</form>
+					</div>
+				</div>
+		</div>
+
+		<script>
+		
+			function SendPostRequestHome(event){
+				
+				$.ajax({
+				url: "{% url 'homepage:login' %}",
+				method: 'POST',
+				data: { 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+				success: function (data) {
+					
+					if(data.result == 'success'){
+						
+						window.location = "{% url 'homepage:options' %}";
+					}
+					else if(data.result == 'failure'){
+						window.location = "{% url 'homepage:login' %}";
+					}
+				}
+			});
+			}
+			</script>
+
+
+</body>
+{% endblock %}
