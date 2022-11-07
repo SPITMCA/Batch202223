@@ -5,4 +5,4 @@ Roomie (Roommate finder)
  
 Project Files are in the below google drive link -->
 
-https://drive.google.com/drive/folders/1Ijam1-zKxsbLYJfZdN5USdu4cxyH0FnA1?usp=sharing
+https://drive.google.com/drive/folders/1Ijam1-zKxbLYJfZdN5USdu4cxyH0FnA1
